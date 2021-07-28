@@ -107,6 +107,12 @@ def plot_band_bars(deltas, colors=None, ylim=None, ax=None):
         ax.set_ylim(ylim);
 
 
+def get_max_lim(arr, buffer=0.15):
+    """Get max value (+ a buffer) to use for axis limit."""
+
+    return np.max(arr) + buffer * np.max(arr)
+
+
 def add_lines(ax, xpos, color, alpha):
     """Add vertical lines at f1 & f2 positions."""
 
