@@ -103,3 +103,10 @@ def plot_band_bars(deltas, colors=None, ylim=None, ax=None):
     ax.set(yticks=[])
     if ylim:
         ax.set_ylim(ylim);
+
+
+def add_lines(ax, xpos, color, alpha):
+    """Add vertical lines at f1 & f2 positions."""
+
+    ax.axvline(xpos, color=color, alpha=alpha)
+    ax.axvline(2 * xpos, color=color, alpha=alpha)

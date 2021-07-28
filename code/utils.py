@@ -79,3 +79,12 @@ def compute_pac(signal_alpha_filt, signal_beta_filt, n_bins=21):
         pac[i_bin] = np.mean(beta_env[(phase_bins == c_bin)])
 
     return bins, pac
+
+
+def mu_wave(time, shift=0, freq=10, wave_shift=0.5*np.pi):
+    """Create a non-sinusoidal signal as a sum of two sine-waves with fixed phase-lag."""
+
+    alpha = 1.0 * np.sin(freq * 2 * np.pi * (time + shift))
+    beta = 0.25 * np.sin(freq * 2 * np.pi * 2 * (time + shift) + wave_shift)
+
+    return alpha + beta
