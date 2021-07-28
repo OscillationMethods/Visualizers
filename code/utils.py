@@ -4,6 +4,8 @@ import numpy as np
 
 from fooof.utils import trim_spectrum
 
+from neurodsp.timefrequency import robust_hilbert
+
 ###################################################################################################
 ###################################################################################################
 
@@ -61,3 +63,19 @@ def rotate_sig(sig, fs, delta_exp, f_rotation):
     sig_out = np.real(np.fft.ifft(fft_rot))
 
     return sig_out
+
+
+def compute_pac(signal_alpha_filt, signal_beta_filt, n_bins=21):
+    """Compute phase-amplitude coupling for a mu signal."""
+
+    beta_env = np.abs(robust_hilbert(signal_beta_filt))
+    phase_alpha = np.angle(robust_hilbert(signal_alpha_filt))
+
+    bins = np.linspace(-np.pi, np.pi, n_bins)
+    phase_bins = np.digitize(phase_alpha, bins)
+
+    pac = np.zeros(n_bins)
+    for i_bin, c_bin in enumerate(np.unique(phase_bins)):
+        pac[i_bin] = np.mean(beta_env[(phase_bins == c_bin)])
+
+    return bins, pac

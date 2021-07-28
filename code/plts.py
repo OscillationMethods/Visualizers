@@ -11,7 +11,8 @@ from neurodsp.plts.utils import check_ax
 ###################################################################################################
 ###################################################################################################
 
-def plot_timeseries(signals, shade=None, colors=None, xlim=None, offset=0, ax=None, **plt_kwargs):
+def plot_timeseries(signals, shade=None, colors=None, xlim=None, ylim=None,
+                    offset=0, ax=None, **plt_kwargs):
     """Plot time series."""
 
     ax = check_ax(ax)
@@ -32,14 +33,17 @@ def plot_timeseries(signals, shade=None, colors=None, xlim=None, offset=0, ax=No
         #   for some reason this seems to make sure that shading goes the full length
         ax.set_xlim(*ax.get_xlim())
 
+    if ylim:
+        ax.set_ylim(ylim)
+
     if shade:
         ax.axvspan(*ax.get_xlim(), alpha=0.2, color=shade)
 
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);
 
 
-def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, colors=None,
-                 shade_ranges=None, shade_colors=None, ax=None, **plt_kwargs):
+def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim=None,
+                 colors=None, shade_ranges=None, shade_colors=None, ax=None, **plt_kwargs):
     """Plot power spectra."""
 
     ax = check_ax(ax)
@@ -67,11 +71,13 @@ def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, colo
 
     if xlim:
         ax.set_xlim(xlim)
+    if ylim:
+        ax.set_ylim(ylim)
 
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);
 
 
-def plot_bar(d1, d2, ax=None, **plt_kwargs):
+def plot_bar(d1, d2, ax=None, ylim=None, **plt_kwargs):
     """Plot bar graph with two bars."""
 
     ax = check_ax(ax)
@@ -80,6 +86,8 @@ def plot_bar(d1, d2, ax=None, **plt_kwargs):
 
     ax.set_xlim([0, 2])
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None)
+    if ylim:
+        ax.set_ylim(ylim)
 
 
 def plot_band_bars(deltas, colors=None, ylim=None, ax=None):
