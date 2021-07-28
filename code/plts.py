@@ -77,7 +77,7 @@ def plot_spectra(freqs, powers, log_freqs=True, log_powers=True, xlim=None, ylim
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None);
 
 
-def plot_bar(d1, d2, ax=None, ylim=None, **plt_kwargs):
+def plot_bar(d1, d2, ax=None, ylim=None, title=None, **plt_kwargs):
     """Plot bar graph with two bars."""
 
     ax = check_ax(ax)
@@ -88,6 +88,8 @@ def plot_bar(d1, d2, ax=None, ylim=None, **plt_kwargs):
     ax.set(xticks=[], yticks=[], xlabel=None, ylabel=None)
     if ylim:
         ax.set_ylim(ylim)
+    if title:
+        ax.set_title(title, fontdict={'fontsize' : 18})
 
 
 def plot_band_bars(deltas, colors=None, ylim=None, ax=None):

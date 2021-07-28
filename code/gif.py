@@ -18,3 +18,10 @@ def _gif_plot_output(fig, save, build_ind, label='fig', sleep=0.01):
     else:
         plt.show();
         time.sleep(sleep)
+
+
+def incrementer(start=0, end=999):
+    """Increment generator."""
+
+    for ind in range(start, end):
+        yield ind

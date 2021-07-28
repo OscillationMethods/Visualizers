@@ -1,10 +1,6 @@
-"""Ulility functions for oscillation methods visualizers."""
+"""Utility functions for oscillation methods visualizers."""
 
 import numpy as np
-
-from fooof.utils import trim_spectrum
-
-from neurodsp.timefrequency import robust_hilbert
 
 ###################################################################################################
 ###################################################################################################
@@ -16,75 +12,14 @@ def yield_sig(sig, start=0, size=100, step=1):
         yield sig[st:st+size]
 
 
-def compute_abs_power(freqs, powers, band):
-    """Compute absolute power for a given frequency band."""
+def sweep_values(mid, low, high, step, round_vals=None):
+    """Create a an upward/downward sweep across a range of values."""
 
-    _, band_powers = trim_spectrum(freqs, powers, band)
-    avg_power = np.sum(band_powers)
+    values = np.concatenate([np.arange(mid, high, step),
+                             np.arange(high, low, -step),
+                             np.arange(low, mid, step)])
 
-    return avg_power
+    if round_vals:
+        values = np.round(values, round_vals)
 
-
-def compute_rel_power(freqs, powers, band, method='sum', norm_range=None):
-    """Compute relative power for a given frequency band."""
-
-    band_power = compute_abs_power(freqs, powers, band)
-
-    total_band = [freqs.min(), freqs.max()] if not norm_range else norm_range
-    total_power = compute_abs_power(freqs, powers, total_band)
-
-    rel_power = band_power / total_power * 100
-
-    return rel_power
-
-
-def rotate_sig(sig, fs, delta_exp, f_rotation):
-    """Spectrally rotate a time series."""
-
-    fft_vals = np.fft.fft(sig)
-    f_axis = np.fft.fftfreq(len(sig), 1./fs)
-
-    if f_axis[0] == 0:
-        skipped_zero = True
-        p_0 = fft_vals[0]
-        f_axis, fft_vals = f_axis[1:], fft_vals[1:]
-
-    else:
-        skipped_zero = False
-
-    f_mask = 10**(np.log10(np.abs(f_axis)) * delta_exp)
-    f_mask = f_mask / f_mask[np.where(f_axis == f_rotation)]
-
-    fft_rot = fft_vals * f_mask
-
-    if skipped_zero:
-        fft_rot = np.insert(fft_rot, 0, p_0)
-
-    sig_out = np.real(np.fft.ifft(fft_rot))
-
-    return sig_out
-
-
-def compute_pac(signal_alpha_filt, signal_beta_filt, n_bins=21):
-    """Compute phase-amplitude coupling for a mu signal."""
-
-    beta_env = np.abs(robust_hilbert(signal_beta_filt))
-    phase_alpha = np.angle(robust_hilbert(signal_alpha_filt))
-
-    bins = np.linspace(-np.pi, np.pi, n_bins)
-    phase_bins = np.digitize(phase_alpha, bins)
-
-    pac = np.zeros(n_bins)
-    for i_bin, c_bin in enumerate(np.unique(phase_bins)):
-        pac[i_bin] = np.mean(beta_env[(phase_bins == c_bin)])
-
-    return bins, pac
-
-
-def mu_wave(time, shift=0, freq=10, wave_shift=0.5*np.pi):
-    """Create a non-sinusoidal signal as a sum of two sine-waves with fixed phase-lag."""
-
-    alpha = 1.0 * np.sin(freq * 2 * np.pi * (time + shift))
-    beta = 0.25 * np.sin(freq * 2 * np.pi * 2 * (time + shift) + wave_shift)
-
-    return alpha + beta
+    return values
