@@ -1,40 +1,39 @@
 # OscMethods: Animated Visualizers
 
-This is the source repository for animated visualizations for the [OscillationMethods](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15361) project.
+This is the source repository for animated visualizations for the OscillationMethods project.
+
+[![Paper](https://img.shields.io/badge/paper-10.1111/ejn.15361-informational.svg)](https://doi.org/10.1111/ejn.15361)
+[![Website](https://img.shields.io/badge/site-oscillationmethods.github.io-informational.svg)](https://oscillationmethods.github.io)
 
 ## Overview
 
-This repository includes the code used to create the animated visualization, as well as copies of the final output. Each visualization is created by a dedicated notebook. Note that the code in this repository creates all the images needed for the gifs, but that the gifs need to be stitched together, which is currently done with an external service.
+This repository includes the code to create the animated visualization, as well as copies of the final outputs. 
 
-This collection of animated visualizers, with descriptions, is also available on the 
-[project website](https://oscillationmethods.github.io/), 
-on 
-[vizualizations page](https://oscillationmethods.github.io/docs/viz.html).
-
-Note that each of the visualizations is an animated version of one of the figures from the 
-[paper](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15361).
-The original code that these animations are based on is available in the 
-[project repository](https://github.com/OscillationMethods/OscillationMethods).
+These animated visualizers, with descriptions, are also available on the 
+[vizualizations page](https://oscillationmethods.github.io/docs/viz.html)
+of the project website.
 
 ## ReUse
 
-Copies of the animated visualizations are avaialble in the `gifs` folder.
-If you wish to re-use these animations, you are free to do so under a Creative Commons 
+Copies of the animated visualizations are available in the `gifs/` folder. 
+These visualization are available for re-use under a Creative Commons 
 [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) 
 license, meaning all non-commercial purposes are fine. 
 
-If you re-use these animations, please cite the associated project paper. 
+The code to create these visualizations is available in the `notebooks/` folder, under the
+[MIT License](https://github.com/OscillationMethods/Visualizers/blob/main/notebooks/LICENSE), 
+meaning if you wish use and adapt this code, you may do so. 
 
-Citation:
+If you re-use these animations and/or the code, please cite the associated paper. 
+
+## Citation
+
+Associated paper:
 
     Donoghue T, Schaworonkow N, & Voytek B (2021). Methodological considerations for
     studying neural oscillations. European Journal of Neuroscience. DOI: 10.1111/ejn.15361
 
 Direct Link: https://onlinelibrary.wiley.com/doi/10.1111/ejn.15361
-
-The code is this repository is under an 
-[MIT License](https://github.com/OscillationMethods/Visualizers/blob/main/LICENSE), 
-meaning if you wish use and adapt this code for creating your own visualizations, you may do so. 
 
 ## Visualizations
 
