@@ -9,7 +9,7 @@ This is the source repository for animated visualizations for the OscillationMet
 
 This repository includes the code to create the animated visualization, as well as copies of the final outputs. 
 
-These animated visualizers, with descriptions, are also available on the 
+The animated visualizers, with descriptions, are also available on the 
 [vizualizations page](https://oscillationmethods.github.io/docs/viz.html)
 of the project website.
 
@@ -22,7 +22,7 @@ license, meaning all non-commercial purposes are fine.
 
 The code to create these visualizations is available in the `notebooks/` folder, under the
 [MIT License](https://github.com/OscillationMethods/Visualizers/blob/main/notebooks/LICENSE), 
-meaning if you wish use and adapt this code, you may do so. 
+meaning if you wish to use and adapt this code, you may do so. 
 
 If you re-use these animations and/or the code, please cite the associated paper. 
 
@@ -47,7 +47,7 @@ An introductory visualization showing oscillations, with the time series, filter
 
 #### #1 - Oscillation Presence
 
-A visualization showing illustory oscillations, whereby filtered aperiodic activity can look rhythmic:
+A visualization showing illusory oscillations, whereby filtered aperiodic activity can look rhythmic:
 
 ![fig1](/gifs/fig1.gif)
 
