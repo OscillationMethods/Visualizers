@@ -9,7 +9,7 @@ This is the source repository for animated visualizations for the OscillationMet
 
 This repository includes the code to create the animated visualization, as well as copies of the final outputs. 
 
-These animated visualizers, with descriptions, are also available on the 
+The animated visualizers, with descriptions, are also available on the 
 [vizualizations page](https://oscillationmethods.github.io/docs/viz.html)
 of the project website.
 
@@ -17,12 +17,12 @@ of the project website.
 
 Copies of the animated visualizations are available in the `gifs/` folder. 
 These visualization are available for re-use under a Creative Commons 
-[CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) 
-license, meaning all non-commercial purposes are fine. 
+[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) 
+license, meaning re-use, with attribution, is allowed.
 
 The code to create these visualizations is available in the `notebooks/` folder, under the
 [MIT License](https://github.com/OscillationMethods/Visualizers/blob/main/notebooks/LICENSE), 
-meaning if you wish use and adapt this code, you may do so. 
+meaning if you wish to use and adapt this code, you may do so. 
 
 If you re-use these animations and/or the code, please cite the associated paper. 
 
@@ -30,8 +30,8 @@ If you re-use these animations and/or the code, please cite the associated paper
 
 Associated paper:
 
-    Donoghue T, Schaworonkow N, & Voytek B (2021). Methodological considerations for
-    studying neural oscillations. European Journal of Neuroscience. DOI: 10.1111/ejn.15361
+    Donoghue T, Schaworonkow N, & Voytek B (2022). Methodological considerations for studying neural 
+    oscillations. European Journal of Neuroscience, 55(11-12), 3502-3527 DOI: 10.1111/ejn.15361
 
 Direct Link: https://onlinelibrary.wiley.com/doi/10.1111/ejn.15361
 
@@ -47,7 +47,7 @@ An introductory visualization showing oscillations, with the time series, filter
 
 #### #1 - Oscillation Presence
 
-A visualization showing illustory oscillations, whereby filtered aperiodic activity can look rhythmic:
+A visualization showing illusory oscillations, whereby filtered aperiodic activity can look rhythmic:
 
 ![fig1](/gifs/fig1.gif)
 
